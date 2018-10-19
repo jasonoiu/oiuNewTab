@@ -15,22 +15,39 @@ a:hover {
     text-decoration: underline;
 }
 
-ul li{
+ul,li,button,input,a{
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-#bookmarksContainer .fav{
-    background-size: 15px;
-    background-position-y: 3px;
-    background-repeat: no-repeat;
-    padding-left: 20px;
+.clear{
+    width:100%; height:1px;
+    clear:both;
+}
+
+.container{
+    float: left;
 
 }
-#bookmarksContainer .folder{
-    background-image: url('../img/ffolder.png');
+
+.module{
+    float: left;
+    border: #a9aaab solid 1px;
+    border-radius: 8px;
+    height: 100%;
+    padding: 5px;
+    margin: 10px 15px 2px 2px;
+    display:none;
 }
-#bookmarksContainer .web{
-    background-image: url('../img/web.png');
+
+.module>h3{
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.modal{
+    padding:10px;
 }

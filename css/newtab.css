@@ -1,0 +1,69 @@
+
+/* bookmarks start */
+
+#bookmarksContainer .fav{
+    background-size: 15px;
+    background-position-y: 3px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+
+}
+#bookmarksContainer .fav a{
+    width: 200px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    height: 20px;
+}
+#bookmarksContainer .folder{
+    background-image: url('../img/ffolder.png');
+}
+#bookmarksContainer .web{
+    background-image: url('../img/web.png');
+}
+
+
+/* bookmarks end */
+
+
+/* Most Visited start */
+
+#btnAddMV {
+    border-radius: 50%;
+    border: solid 1px #6e7171;
+    color: #6e7171;
+    line-height: 18px;
+    text-align: center;
+    vertical-align: -webkit-baseline-middle;
+    width: 21px;
+    height: 18px;
+    padding-bottom: 3px;
+    cursor: pointer;
+    float: right;
+}
+#btnAddMV:hover{
+    border:solid 1px #e33e06;
+    color: #e33e06
+}
+
+#mostVisitedContainer div {
+    float: left;
+    width: 75px;
+    height: 30px;
+    margin: 10px 3px 0 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+/* Most Visited end */
+
+
