@@ -1,4 +1,4 @@
-![oiuNewTab](oiuNewTab-logo.jpg)
+![oiuNewTab](https://github.com/jasonoiu/oiuNewTab/raw/master/img/icon-s-100.png)
 ##oiuNewTab是什么?
 
 chrome浏览器新标签页插件
