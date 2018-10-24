@@ -144,6 +144,16 @@
         return $(this).parents(selector).eq(0);
     };
 
+    /**
+     * 获取css样式中的值
+     * @param {string} cssName css名称
+     * @returns {number} 返回数字 
+     */
+    $.fn.cssVal = function (cssName) {
+        let val = $(this).css(cssName).replace('px','');
+        return parseInt(val);
+    }
+
 })(jQuery, window);
 
 

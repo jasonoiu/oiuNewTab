@@ -343,6 +343,7 @@
      * 获取某一天的天气数据的html
      * @param {object} data 天气数据
      * @param {number} ssData 现在的实时数据
+     * @returns {string} 返回天气数据的html字符串 
      */
     function getDayWeatherHtml(data,ssData) {
         let dayMatch = /(?<day>\d{1,2})日(?<weekday>星期[\u4e00-\u9fa5]+)/.exec(data.date);
@@ -358,7 +359,7 @@
                     <div class="weather_wendu">{4}</div>
                     <div class="weather_weath">{5}</div>
                     <div class="weather_wind">{6}</div>
-                    <div class="weather_quality">{7}</div>
+                    <div class="weather_quality {7}">{8}</div>
                 </div>
                 <div class="weather_split"></div>`.format(
                     isToday ? 'today' : '',
@@ -378,6 +379,7 @@
                     `{0} - {1} ℃`.format(/\d{1,2}/.exec(data.low)[0], /\d{1,2}/.exec(data.high)[0]),
                     data.type,
                     data.fl === '<3级' ? '微风3级' : data.fl,
+                    getAirQualityCss(ssData.quality),
                     getAirQualityHtml(ssData.quality,ssData.pm25)
                 );
     }
@@ -386,9 +388,23 @@
      * 获取空气质量的html
      * @param {string} quality 空气质量
      * @param {number} pm pm数值
+     * @returns {string} 返回html字符串 
      */
     function getAirQualityHtml(quality, pm) {
-        var html = '';
+        return `<div>
+                    <span>{0}</span><span>{1}</span>
+                </div>`.format(
+                    pm,
+                    quality
+                );
+    }
+
+    /**
+     * 获取空气质量样式名称
+     * @param {string} quality 空气质量
+     * @returns {string} 返回空气质量样式名称
+     */
+    function getAirQualityCss(quality){
         let level = 0;
         switch (quality) {
             case '优':
@@ -400,14 +416,7 @@
             default:
                 break;
         }
-
-        return `<div class="weather_quality_level_{0}_bg">
-                    <span>{1}</span><span>{2}</span>
-                </div>`.format(
-                    level,
-                    pm,
-                    quality
-                );
+        return `weather_quality_level_{0}_bg`.format(level);
     }
 
 
@@ -422,17 +431,28 @@
 //#region wallpaper
 
 ;(function ($,window) {
+
+    /**
+     * 重绘窗口样式
+     */
+    function redrawStyle() {
+        $('body').css('height', $(window).height() - (
+            $('body').cssVal('marginTop') + $('body').cssVal('marginBottom')
+        ));
+    }
     
     $(function () {
 
+        redrawStyle();
+        let wpHeight = $('body').cssVal('height')+ 203;
+        let wpWidth = wpHeight * 1.5;
         $('body')
-            .css('height', $(window).height() - 16)
             .css('backgroundImage', 'url(http://192.168.0.101:90/api/BlegMM/GetRandomImg)')
-            .css('backgroundSize', '100% 100%');
+            .css('backgroundSize', '100% auto');
+            //.css('backgroundSize', wpWidth+'px '+wpHeight+'px');
 
         $(window).resize(function () {
-            $('body')
-                .css('height', $(window).height() - 16);
+            redrawStyle();
         });
 
     });

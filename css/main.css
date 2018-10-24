@@ -4,13 +4,14 @@ body{
     font-size: 15px;
     font-weight: 200;
     background-position-x: center;
-    background-position-y: center;
+    background-position-y: top;
     background-repeat: no-repeat;
     background-size: auto;
+    background-color: #f6faff;
 }
 
 a:link,a:visited{
-    color: #005a94;
+    color: #000000;
     text-decoration: none;
 }
 
