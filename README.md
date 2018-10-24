@@ -5,7 +5,7 @@ chrome浏览器新标签页插件
 
 效果图：
 
-(https://github.com/jasonoiu/oiuNewTab/raw/master/img/demo.png)
+![demo](https://github.com/jasonoiu/oiuNewTab/raw/master/img/demo.png)
 
 ## oiuNewTab有哪些功能？
 
