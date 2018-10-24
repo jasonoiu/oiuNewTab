@@ -201,3 +201,216 @@
     })(jQuery, window);
 
 //#endregion
+
+
+
+//#region Cnblogs
+
+(function ($, window) {
+
+    /**
+     * 绑定翻页事件
+     * @param {boolen} isBlog 是否为博客内容
+     */
+    function bindPagesEvent(isBlog) {
+        $('.pager a', isBlog ? '#tabs-blogs' : '#tabs-news').on('click', function () {
+            let e = $(this);
+            if (e.hasClass('current')) return false;
+            let reg = /\/news\/page\/(?<page>\d+)\//ig;
+            if (isBlog) reg = /\/blog\/page\/(?<page>\d+)\//ig;
+            let result = reg.exec(e.attr('href'));
+            if(isBlog){
+                getBlogsByPageIndex(result.groups.page);
+            }else{
+                getNewsByPageIndex(result.groups.page);
+            }
+            return false;
+        });
+    }
+
+    /**
+     * 根据页数获取新闻内容
+     * @param {number} pageIndex 第几页
+     */
+    function getNewsByPageIndex(pageIndex) {
+        $.get('https://home.cnblogs.com/news/page/'+pageIndex).then(function (data) { 
+            let reg = /<div class="news_item" id="news_item\d+">\s+<h2 class="news_entry">\s+<a href="\/\/(?<url>news.cnblogs.com\/n\/\d+\/)" target="_blank">(?<title>.*?)<\/a>/igm;
+            let html='<ul>';
+            while((result = reg.exec(data))!==null){
+                html += `<li><a href='http://{0}' target='_blank' title='{1}'>{1}</a></li>`.format(
+                    result.groups.url,
+                    result.groups.title
+                );
+            }
+            html += '</ul>';
+            //page
+            reg = /<div class="pager">.*?<\/div>/ig;
+            html += reg.exec(data);
+
+            $('#tabs-news').html(html);
+            bindPagesEvent();
+         }, function (data) {
+            $('#tabs-news').html(data);
+         });
+    }
+
+
+    /**
+     * 根据页数获取首页精华博客内容
+     * @param {number} pageIndex 第几页
+     */
+    function getBlogsByPageIndex(pageIndex) {
+        $.get('https://home.cnblogs.com/blog/page/'+pageIndex).then(function (data) { 
+            var reg = /<h2 class="entry_title"><a .*?>(?<author>\[.*?\])<\/a><a href="(?<url>.*?\.html)" target="_blank">(?<title>.*?)<\/a><\/h2>/gim;
+            let html='<ul>';
+            while((result = reg.exec(data))!==null){
+                html += `<li><a href='{0}' target='_blank' title='{1} {2}'>{1} {2}</a></li>`.format(
+                    result.groups.url,
+                    result.groups.author,
+                    result.groups.title
+                );
+            }
+            html += '</ul>';
+            //page
+            reg = /<div class="pager">.*?<\/div>/ig;
+            html += reg.exec(data);
+
+            $('#tabs-blogs').html(html);
+            bindPagesEvent(true);
+         }, function (data) {
+            $('#tabs-blogs').html(data);
+         });
+    }
+
+
+    $(function () { 
+        $('#cnblogsContainer').tabs();
+        //去除点击后的边框效果
+        $('#cnblogsContainer>ul>li>a').on('click',function () {
+            $(this).blur();
+        });
+        getBlogsByPageIndex(1);
+        getNewsByPageIndex(1);
+     })
+
+})(jQuery, window);
+
+//#endregion
+
+
+
+//#region clock
+
+(function ($,window) {
+    
+    let clock;
+    $(function () {
+        
+        clock = $('#clockContainer').FlipClock({
+            clockFace: 'TwentyFourHourClock'
+        });
+
+    })
+
+
+})(jQuery,window);
+
+//#endregion
+
+
+
+
+//#region weather
+
+;(function ($,window) {
+    
+    $(function () {
+        
+        $.get('http://t.weather.sojson.com/api/weather/city/101280601').then(function (data) {
+            let html='';
+            for (let i = 0; i < data.data.forecast.length; i++) {
+                html += getDayWeatherHtml(data.data.forecast[i],data.data);
+            }
+
+            $('#weatherContainer').html(html);
+         }, function (data) {
+            $('#weatherContainer').html(data);
+         });
+
+    });
+
+    /**
+     * 获取某一天的天气数据的html
+     * @param {object} data 天气数据
+     * @param {number} ssData 现在的实时数据
+     */
+    function getDayWeatherHtml(data,ssData) {
+        let dayMatch = /(?<day>\d{1,2})日(?<weekday>星期[\u4e00-\u9fa5]+)/.exec(data.date);
+        let day = dayMatch.groups.day.toInt();
+        let weekday = dayMatch.groups.weekday;
+        let nowDay = new Date().getDate();
+        if (day < nowDay || day - nowDay > 2) return '';
+        let isToday = day === nowDay;
+        return `<div class="weatherMoudle {0}">
+                    {1}
+                    <div class="weather_icon" style="background-image:url(./plugin/weather/img/{2}.png)"></div>
+                    {3}
+                    <div class="weather_wendu">{4}</div>
+                    <div class="weather_weath">{5}</div>
+                    <div class="weather_wind">{6}</div>
+                    <div class="weather_quality">{7}</div>
+                </div>
+                <div class="weather_split"></div>`.format(
+                    isToday ? 'today' : '',
+                    isToday ? '' : `<div class="weather_week">{0}</div><div class="weather_date">{1}</div>`.format(
+                        weekday,
+                        (new Date().addDay(day - nowDay)).format('MM月dd日')
+                        ),
+                    data.type,
+                    isToday ? `<div class="weather_shishi">
+                                    <span class="weather_shishi_wendu">{0}</span>
+                                    <span class="weather_shishi_data">
+                                        <i class="weather_shishi_sup">℃</i>
+                                        <i class="weather_shishi_sub">{1}</i>
+                                    </span>
+                                </div>`.format(ssData.wendu,data.type)
+                            : '',
+                    `{0} - {1} ℃`.format(/\d{1,2}/.exec(data.low)[0], /\d{1,2}/.exec(data.high)[0]),
+                    data.type,
+                    data.fl === '<3级' ? '微风3级' : data.fl,
+                    getAirQualityHtml(ssData.quality,ssData.pm25)
+                );
+    }
+
+    /**
+     * 获取空气质量的html
+     * @param {string} quality 空气质量
+     * @param {number} pm pm数值
+     */
+    function getAirQualityHtml(quality, pm) {
+        var html = '';
+        let level = 0;
+        switch (quality) {
+            case '优':
+                level = 1;
+                break;
+            case '良':
+                level = 2;
+                break;
+            default:
+                break;
+        }
+
+        return `<div class="weather_quality_level_{0}_bg">
+                    <span>{1}</span><span>{2}</span>
+                </div>`.format(
+                    level,
+                    pm,
+                    quality
+                );
+    }
+
+
+})(jQuery,window);
+
+//#endregion

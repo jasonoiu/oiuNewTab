@@ -6,16 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>新标签页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/jquery-ui-1.12.1/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/newtab.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="plugin/layx.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="plugin/jQuery-contextMenu/jquery.contextMenu.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/flipclock/flipclock.css" />
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/newtabmain.js"></script>
     <script src="./plugin/layx.js"></script>
+    <script src="./plugin/jquery-ui-1.12.1/jquery-ui.js"></script>
     <script src="./plugin/jQuery-contextMenu/jquery.ui.position.js"></script>
     <script src="./plugin/jQuery-contextMenu/jquery.contextMenu.js"></script>
+    <script src="./plugin/flipclock/flipclock.js"></script>
 </head>
 
 <body>
@@ -32,6 +36,7 @@
             <div class="clear"></div>
             <div id="btnAddMV">+</div>
         </div>
+        
         <div id="add-mv-modal" class="modal" style="display:none;">
             Title: <input type="text" id="txt-mv-title"  />
             <br />
@@ -40,14 +45,31 @@
         </div>
     </div>
 
-    <div class="module" style="display:block; width:300px;">
-        <h3>Google Translate</h3>
-        <div id="gTransContainer">
-
+    <div class="module" style="display:block; width:500px;">
+        <h3>CnBlogs</h3>
+        <div id="cnblogsContainer">
+            <ul>
+                <li><a href="#tabs-blogs">Blogs</a></li>
+                <li><a href="#tabs-news">News</a></li>
+              </ul>
+              <div id="tabs-blogs">
+                
+              </div>
+              <div id="tabs-news">
+                
+              </div>
         </div>
     </div>
     
+    <div class="container" style="width:383px;">
+        <div class="module" style="display:block; width:100%;">
+            <div id="clockContainer"></div>
+        </div>
 
+        <div class="module" style="display:block; width:100%;">
+            <div id="weatherContainer"></div>
+        </div>
+    </div>
 
     
 

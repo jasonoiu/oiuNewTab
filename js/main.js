@@ -125,6 +125,15 @@
         return fmt;
     };
 
+    /**
+     * 增加天数
+     * @param {number} day 需要增加的天数
+     */
+    Date.prototype.addDay = function (day) {
+        let d = this.setDate(this.getDate()+day);
+        return new Date(d);
+    };
+
 
     /**
      * 父级中符合条件的第一个元素
@@ -136,3 +145,19 @@
     };
 
 })(jQuery, window);
+
+
+
+
+(function ($,window) { 
+
+    class tools{
+        getWebContent(url){
+            $.get(url);
+            
+        }
+    }
+
+    window.tools = new tools();
+
+ })(jQuery, window)

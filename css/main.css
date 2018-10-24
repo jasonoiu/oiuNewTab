@@ -1,6 +1,6 @@
 body{
     color: rgba(33, 32, 36, 0.86);
-    font-family: 'Segoe UI', 'Roboto', arial,'Microsoft YaHei', sans-serif;
+    font-family: 'Segoe UI', 'Roboto', arial,'Microsoft YaHei', sans-serif !important;
     font-size: 15px;
     font-weight: 200;
 }
@@ -14,6 +14,8 @@ a:hover {
     color: #e33e06;
     text-decoration: underline;
 }
+
+
 
 ul,li,button,input,a{
     list-style-type: none;

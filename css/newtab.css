@@ -58,12 +58,178 @@
     display: inline-block;
 }
 
-
-
-
-
-
-
 /* Most Visited end */
 
 
+
+
+
+/* cnblogs start */
+
+#tabs-news,#tabs-blogs{
+    padding: 10px;
+}
+
+#tabs-blogs li,#tabs-news li{
+    margin: 1px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+#tabs-blogs .pager,#tabs-news .pager{
+    color: #075DB3;
+    font-size: 12px;
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+}
+
+#tabs-blogs .pager a,#tabs-news .pager a {
+    border: 1px solid #9AAFE5;
+    color: #2E6AB1;
+    height: 20px;
+    line-height: 20px;
+    margin: 0px 2px;
+    padding: 2px 4px;
+    text-decoration: none;
+}
+
+#tabs-blogs .pager .current,#tabs-news .pager .current {
+    background-color: #2E6AB1;
+    border: 1px solid navy;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 0px 2px;
+    padding: 2px 5px;
+}
+
+/* cnblogs end */
+
+
+
+
+
+/*  weather start */
+
+#weatherContainer{
+    height: 242px;
+    background-color: #116bbe;
+    color: #FFFFFF;
+    border: #116bbe solid 1px;
+    border-radius: 8px;
+    font-size: 12px;
+    padding-top: 15px;
+}
+
+#weatherContainer .weatherMoudle{
+    float: left;
+    height: 100%;
+    width: 85px;
+    text-align: center;
+}
+
+#weatherContainer .weather_split{
+    float: left;
+    margin: 0;
+    width: 1px;
+    height: 215px;
+    background: #fff;
+    filter: alpha(opacity=15);
+    opacity: 0.15;
+}
+#weatherContainer .weather_split:last-child{
+    display: none;
+}
+
+#weatherContainer .weatherMoudle.today{
+    width: 170px;
+}
+
+#weatherContainer .weatherMoudle .weather_icon{
+    height: 70px;
+    background-position-x: center;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    margin-bottom: 13px;
+}
+
+#weatherContainer .weatherMoudle.today .weather_icon{
+    margin-bottom: 0;
+}
+
+#weatherContainer .weatherMoudle .weather_shishi{
+    position: relative;
+    
+}
+#weatherContainer .weatherMoudle .weather_shishi .weather_shishi_wendu{
+    font-size: 48px;
+    line-height: 64px;
+    display: inline-block;
+    font-family: Arial;
+    text-shadow: 1px 1px 1px #555;
+}
+#weatherContainer .weatherMoudle .weather_shishi .weather_shishi_data{
+    position: relative;
+    display: inline-block;
+}
+#weatherContainer .weatherMoudle .weather_shishi .weather_shishi_data .weather_shishi_sup,
+#weatherContainer .weatherMoudle .weather_shishi .weather_shishi_data .weather_shishi_sub{
+    display: block;
+    text-align: left;
+    font-style: normal;
+    text-shadow: 1px 1px 1px #555;
+    font-size: 15px;
+}
+
+#weatherContainer .weatherMoudle .weather_week{
+    margin-bottom: 4px;
+}
+#weatherContainer .weatherMoudle .weather_date{
+    margin-bottom: 15px;
+}
+
+
+
+
+#weatherContainer .weatherMoudle .weather_quality{
+    display: inline-block;
+    min-width: 38px;
+    height: 19px;
+    line-height: 19px;
+    border-radius: 3px;
+    background-color: #82c91e;
+    margin: 0px auto;
+    margin-top: 12px;
+    text-align: center;
+    padding: 0 6px;
+}
+
+/* 空气质量块背景色 */
+.weather_quality_level_0_bg {
+    background-color: #cacaca;
+}
+.weather_quality_level_1_bg {
+    background-color: #40c057;
+}
+.weather_quality_level_2_bg {
+    background-color: #82c91e;
+}
+.weather_quality_level_3_bg {
+    background-color: #f76707;
+}
+.weather_quality_level_4_bg {
+    background-color: #e03131;
+}
+.weather_quality_level_5_bg {
+    background-color: #841c3c;
+}
+.weather_quality_level_6_bg {
+    background-color: #540822;
+}
+
+
+
+
+/*  weather end  */
