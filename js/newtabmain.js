@@ -414,3 +414,53 @@
 })(jQuery,window);
 
 //#endregion
+
+
+
+
+
+//#region wallpaper
+
+;(function ($,window) {
+    
+    $(function () {
+
+        $('body')
+            .css('height', $(window).height() - 16)
+            .css('backgroundImage', 'url(http://192.168.0.101:90/api/BlegMM/GetRandomImg)')
+            .css('backgroundSize', '100% 100%');
+
+        $(window).resize(function () {
+            $('body')
+                .css('height', $(window).height() - 16);
+        });
+
+    });
+
+
+
+})(jQuery,window);
+
+//#endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

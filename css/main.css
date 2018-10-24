@@ -3,6 +3,10 @@ body{
     font-family: 'Segoe UI', 'Roboto', arial,'Microsoft YaHei', sans-serif !important;
     font-size: 15px;
     font-weight: 200;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
 a:link,a:visited{
@@ -37,7 +41,7 @@ ul,li,button,input,a{
     float: left;
     border: #a9aaab solid 1px;
     border-radius: 8px;
-    height: 100%;
+    height: auto;
     padding: 5px;
     margin: 10px 15px 2px 2px;
     display:none;
