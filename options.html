@@ -5,9 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Oiu配置</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/jquery-ui-1.12.1/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/layx.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/flipclock/flipclock.css" />
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./plugin/layx.js"></script>
+    <script src="./plugin/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="./plugin/jQuery-contextMenu/jquery.ui.position.js"></script>
+    <script src="./js/options.js"></script>
 </head>
 <body>
     <h3 style="text-align:center;">Oiu配置</h3>
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-primary">添加新规则</button>
+        </div>
+        <div id="ruleContainer" class="col-md-9">
+            <div class="styleRuleContainer">
+                CSS样式：
+                <textarea class="input_styleRule"></textarea>
+            </div>
+            <div class="scriptRuleContainer">
+                Script脚本：
+                <textarea class="input_scriptRule"></textarea>
+            </div>
+            <div class="matchRuleContainer">
+                匹配页面：（支持正则）
+                <input type="text"/>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
