@@ -38,7 +38,8 @@
     vertical-align: -webkit-baseline-middle;
     width: 21px;
     height: 18px;
-    padding-bottom: 3px;
+    padding-bottom: 1px;
+    padding-top: 1px;
     cursor: pointer;
     float: right;
 }
