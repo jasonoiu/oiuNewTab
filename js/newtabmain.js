@@ -447,7 +447,7 @@
         let wpHeight = $('body').cssVal('height')+ 203;
         let wpWidth = wpHeight * 1.5;
         $('body')
-            .css('backgroundImage', 'url(http://192.168.0.101:90/api/BlegMM/GetRandomImg)')
+            //.css('backgroundImage', 'url(http://192.168.0.101:90/api/BlegMM/GetRandomImg)')
             .css('backgroundSize', '100% auto');
             //.css('backgroundSize', wpWidth+'px '+wpHeight+'px');
 
