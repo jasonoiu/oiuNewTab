@@ -17,14 +17,23 @@
     <script src="./plugin/jquery-ui-1.12.1/jquery-ui.js"></script>
     <script src="./plugin/jQuery-contextMenu/jquery.ui.position.js"></script>
     <script src="./js/popup.js"></script>
-    
+    <style>
+        .menuContainer{
+            width: 100px;
+            height: 300px;
+        }
+        .menuContainer ul li a{
+            width: 100%; margin: 3px 0; padding: 0;
+        }
+
+    </style>
 </head>
 <body>
     
     <div class="menuContainer">
         <ul>
-            <li><a href="./options.html">选项</a></li>
-            <li><a href=""></a></li>
+            <li><a class="btn btn-default" id="menu-options" href="./options.html">选项</a></li>
+            <li><a class="btn btn-default" href="">参数配置</a></li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
         </ul>

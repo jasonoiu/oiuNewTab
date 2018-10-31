@@ -1,4 +1,4 @@
 {
-	"pluginDesc": {"message": "A simple chrome extension demo"},
-	"helloWorld": {"message": "Hello World!"}
+	"pluginDesc": {"message": "Beautiful and powerful Chrome plugin"},
+	"options": {"message": "Options"}
 }

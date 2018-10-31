@@ -160,11 +160,22 @@
 
 
 (function ($,window) { 
-
-    class tools{
-        getWebContent(url){
-            $.get(url);
-            
+    /**
+     * 工具类
+     */
+    class tools {
+        /**
+         * 生成全局唯一的GUID
+         * @returns {string} 返回GUID字符串
+         */
+        guid() {
+            var d = new Date().getTime();
+            var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = (d + Math.random() * 16) % 16 | 0;
+                d = Math.floor(d / 16);
+                return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+            });
+            return guid;
         }
     }
 

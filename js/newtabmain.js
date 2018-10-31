@@ -204,6 +204,146 @@
 
 
 
+//#region Noted
+
+;   (function ($, window) {
+
+    var mv = [];
+    
+
+
+    function renderMV() {
+        let html = '';
+        for (let i = 0; i < mv.length; i++) {
+            let obj = mv[i];
+            html += `<div id='{0}'>{1}</div>`.format(
+                obj.id, obj.content
+            );
+        }
+        $('#notedContainer').html(html)
+            .parent().show();
+        bindNoteClickEvent();
+        $.contextMenu({
+            selector: '#notedContainer div',
+            items: {
+                "edit": {
+                    name: "Edit", 
+                    icon: "edit",
+                    callback: function(itemKey, opt, e) {
+                         showEditLayer(opt.$trigger.attr('id'));
+                    }
+                },
+                "delete": {name: "Delete", icon: "delete",
+                    callback: function(itemKey, opt, e) {
+                        mv.removeOfComplexObj('id',opt.$trigger.attr('id'));
+                        chrome.storage.sync.set({ note: mv });
+                        renderMV();
+                    }
+                }
+            }
+        });
+    };
+
+    /**
+     * 绑定Note的点击事件
+     */
+    function bindNoteClickEvent() {
+        $('#notedContainer div').on('click',function () { 
+            showEditLayer($(this).attr('id'));
+         })
+    };
+
+    
+    /**
+     * 显示编辑窗口
+     */
+    function showEditLayer(id) {
+        if($('#layx-add-note-modal').length===1){
+            layx.destroy('add-note-modal');
+            setTimeout(() => {
+                _showEditLayer(id);
+            }, 10);
+        }else{
+            _showEditLayer(id);
+        }
+
+        
+    };
+
+    function _showEditLayer(id) {
+        var obj = mv.find(m => m.id == id);
+        $('#txt-note').val(obj ? obj.content : '');
+        let guid = obj ? obj.id : '';
+        let isAdd = guid === '';
+        if (isAdd) {
+            guid = tools.guid();
+        }
+        let title = isAdd ? 'Add' : 'Edit';
+        layx.html('add-note-modal', title, document.getElementById('add-note-modal'), {
+            width: 280,
+            height: 220,
+            cloneElementContent: false,
+            statusBar: true,
+            minMenu: false,
+            maxMenu: false,
+            buttons: [{
+                label: title,
+                callback: (function (isAdd, guid) {
+                    return function (id, button, event) {
+                        var content = $.trim($('#txt-note').val());
+                        if (content === '') {
+                            alert('内容不能为空！');
+                            return;
+                        }
+
+                        if (isAdd) {
+                            mv.push({
+                                content: content,
+                                id: guid
+                            });
+                        } else {
+                            var obj = mv.find(m => m.id == guid);
+                            obj.content = content;
+                        }
+                        chrome.storage.sync.set({
+                            note: mv
+                        });
+                        renderMV();
+
+                        $('#txt-note').val('');
+
+                        layx.destroy(id);
+                    }
+                })(isAdd, guid),
+                style: 'color:#f00;font-size:16px;'
+            }]
+        });
+    }
+
+
+    $(function () {
+
+        chrome.storage.sync.get({
+            note: []
+        }, function (data) {
+            mv = data.note;
+            renderMV();
+        });
+
+        $('#btnAddNote').on('click', function () {
+            showEditLayer(true);
+        });
+
+
+    });
+
+    })(jQuery, window);
+
+//#endregion
+
+
+
+
 //#region Cnblogs
 
 (function ($, window) {
@@ -324,6 +464,7 @@
 
 ;(function ($,window) {
     
+    let dayCount = 0;
     $(function () {
         
         $.get('http://t.weather.sojson.com/api/weather/city/101280601').then(function (data) {
@@ -343,15 +484,17 @@
      * 获取某一天的天气数据的html
      * @param {object} data 天气数据
      * @param {number} ssData 现在的实时数据
+     * @param {boolean} isFirst 是否是第一个数据 
      * @returns {string} 返回天气数据的html字符串 
      */
-    function getDayWeatherHtml(data,ssData) {
+    function getDayWeatherHtml(data, ssData, isFirst) {
         let dayMatch = /(?<day>\d{1,2})日(?<weekday>星期[\u4e00-\u9fa5]+)/.exec(data.date);
         let day = dayMatch.groups.day.toInt();
         let weekday = dayMatch.groups.weekday;
         let nowDay = new Date().getDate();
-        if (day < nowDay || day - nowDay > 2) return '';
+        if ( (isFirst && day < nowDay) || dayCount >= 3) return '';
         let isToday = day === nowDay;
+        dayCount++;
         return `<div class="weatherMoudle {0}">
                     {1}
                     <div class="weather_icon" style="background-image:url(./plugin/weather/img/{2}.png)"></div>

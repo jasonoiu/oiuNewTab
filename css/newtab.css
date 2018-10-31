@@ -64,6 +64,55 @@
 
 
 
+/* noted start */
+
+#btnAddNote {
+    border-radius: 50%;
+    border: solid 1px #6e7171;
+    color: #6e7171;
+    line-height: 18px;
+    text-align: center;
+    vertical-align: -webkit-baseline-middle;
+    width: 21px;
+    height: 18px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    cursor: pointer;
+    float: right;
+}
+
+#txt-note{
+    width: 250px;
+    height: 100px;
+}
+
+#notedContainer{
+    width: 354px;
+}
+#notedContainer div{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    cursor: pointer;
+}
+#notedContainer div:hover{
+    background-color: #c3e2e2;
+}
+
+
+
+
+
+/* noted end */
+
+
+
+
+
+
+
 
 /* cnblogs start */
 
@@ -127,7 +176,7 @@
 #weatherContainer .weatherMoudle{
     float: left;
     height: 100%;
-    width: 85px;
+    width: 104px;
     text-align: center;
 }
 

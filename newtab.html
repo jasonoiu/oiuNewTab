@@ -35,14 +35,29 @@
             <div id="mostVisitedContainer"></div>
             <div class="clear"></div>
             <div id="btnAddMV">+</div>
+
+            <div id="add-mv-modal" class="modal" style="display:none;">
+                Title: <input type="text" id="txt-mv-title"  />
+                <br />
+                Url: <input type="text" id="txt-mv-url" />
+                <br/>
+            </div>
         </div>
         
-        <div id="add-mv-modal" class="modal" style="display:none;">
-            Title: <input type="text" id="txt-mv-title"  />
-            <br />
-            Url: <input type="text" id="txt-mv-url" />
-            <br/>
+
+        <div class="module">
+            <h3>Noted</h3>
+            <div id="notedContainer"></div>
+            <div class="clear"></div>
+            <div id="btnAddNote">+</div>
+
+            <div id="add-note-modal" class="modal" style="display:none;">
+                Note: 
+                <textarea id="txt-note"></textarea>
+                <br/>
+            </div>
         </div>
+
     </div>
 
     <div class="module" style="display:block; width:500px;">
