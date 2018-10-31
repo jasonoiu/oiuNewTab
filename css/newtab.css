@@ -82,8 +82,8 @@
 }
 
 #txt-note{
-    width: 250px;
-    height: 100px;
+    width: 98%;
+    min-height: 100px;
 }
 
 #notedContainer{

@@ -280,12 +280,22 @@
         }
         let title = isAdd ? 'Add' : 'Edit';
         layx.html('add-note-modal', title, document.getElementById('add-note-modal'), {
-            width: 280,
-            height: 220,
+            width: $(window).width() * 0.8,
+            height: $(window).height() * 0.96,
             cloneElementContent: false,
             statusBar: true,
+            storeStatus: false,
             minMenu: false,
             maxMenu: false,
+            buttonKey: false,
+            event:{
+                onload: {
+                    before: function (layxWindow, winform, params, inside, status) { },
+                    after: function (layxWindow, winform, status) { 
+                        $('#txt-note').height(layxWindow.offsetHeight-105);
+                     }
+                }
+            },
             buttons: [{
                 label: title,
                 callback: (function (isAdd, guid) {
@@ -470,7 +480,7 @@
         $.get('http://t.weather.sojson.com/api/weather/city/101280601').then(function (data) {
             let html='';
             for (let i = 0; i < data.data.forecast.length; i++) {
-                html += getDayWeatherHtml(data.data.forecast[i],data.data);
+                html += getDayWeatherHtml(data.data.forecast[i],data.data,i===0);
             }
 
             $('#weatherContainer').html(html);
