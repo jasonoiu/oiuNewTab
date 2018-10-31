@@ -78,12 +78,13 @@
     "newtab": "newtab.html"
 },
 // Chrome40以后的插件配置页写法，如果2个都写，新版Chrome只认后面这一个
-"options_ui":
-{
-    "page": "options.html",
-    // 添加一些默认的样式，推荐使用
-    "chrome_style": true
-},
+"options_page": "options.html",
+// "options_ui":
+// {
+//     "page": "options.html",
+//     // 添加一些默认的样式，推荐使用
+//     "chrome_style": true
+// },
 // 向地址栏注册一个关键字以提供搜索建议，只能设置一个关键字
 "omnibox": { "keyword" : "oiu" },
 // 默认语言

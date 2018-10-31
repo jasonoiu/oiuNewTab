@@ -280,7 +280,7 @@
         }
         let title = isAdd ? 'Add' : 'Edit';
         layx.html('add-note-modal', title, document.getElementById('add-note-modal'), {
-            width: $(window).width() * 0.8,
+            width: $(window).width() * 0.6,
             height: $(window).height() * 0.96,
             cloneElementContent: false,
             statusBar: true,
@@ -290,7 +290,6 @@
             buttonKey: false,
             event:{
                 onload: {
-                    before: function (layxWindow, winform, params, inside, status) { },
                     after: function (layxWindow, winform, status) { 
                         $('#txt-note').height(layxWindow.offsetHeight-105);
                      }
