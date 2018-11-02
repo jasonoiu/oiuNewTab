@@ -1,9 +1,0 @@
-
-
-.input_styleRule, .input_scriptRule, .input_matchPage{
-    width: 90%;
-}
-
-.input_styleRule, .input_scriptRule{
-    min-height: 100px;
-}

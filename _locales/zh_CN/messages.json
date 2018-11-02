@@ -1,5 +1,19 @@
 {
 	"pluginDesc": {"message": "精美且功能强大的Chrome插件"},
+	"oiuNewTabConfig": {"message": "oiuNewTab配置"},
 	"options": {"message": "选项"},
-	"addNewRule": {"message": "添加新规则"}
+	"enbaled": {"message": "启用"},
+	"add": {"message": "添加"},
+	"del": {"message": "删除"},
+	"addNewRule": {"message": "添加新规则"},
+	"cssValue": {"message": "CSS样式"},
+	"scriptValue": {"message": "Script脚本"},
+	"cssValueAndscriptValueCannotEmpty": {"message": "CSS样式和Script脚本不能同时为空！"},
+	"matchPages": {"message": "匹配页面：（支持正则）"},
+	"matchPagesCannotEmpty": {"message": "匹配页面规则不能为空！"},
+	"pageStyleConfigration": {"message": "页面样式规则配置"},
+	"save": {"message": "保存"},
+	"enterRuleName":{"message": "输入规则名称"},
+	"backToManage":{"message": "返回管理"},
+	"ruleNameCannotEmpty":{"message": "规则名称不能为空！"}
 }

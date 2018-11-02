@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="plugin/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="plugin/jquery-ui-1.12.1/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/options.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/pageRule.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="plugin/layx.css" />
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./plugin/bootstrap/js/bootstrap.min.js"></script>
@@ -17,7 +17,7 @@
     <script src="./plugin/layx.js"></script>
     <script src="./plugin/jquery-ui-1.12.1/jquery-ui.js"></script>
     <script src="./plugin/jQuery-contextMenu/jquery.ui.position.js"></script>
-    <script src="./js/options.js"></script>
+    <script src="./js/page-rule-manage.js"></script>
     <script src="./js/localization.js"></script>
 </head>
 
@@ -26,9 +26,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2">
-                <a href="./pageStyleRule.html" class="btn btn-default" i18n-text="pageStyleConfigration"></a>
+                <a href="./editRule.html" class="btn btn-default" i18n-text="addNewRule"></a>
             </div>
-            
+            <div id="ruleContainer" class="col-lg-10">
+                <div class="pageStyleRuleContainer">
+                    
+                </div>
+
+            </div>
         </div>
     </div>
 </body>

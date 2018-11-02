@@ -1,0 +1,16 @@
+
+
+.input_styleRule, .input_scriptRule, .input_matchPage{
+    width: 93%;
+}
+
+
+
+.input_styleRule, .input_scriptRule{
+    min-height: 100px;
+}
+
+.matchRuleContainer .btn-delMatchPage,.matchRuleContainer .btn-addMatchPage{
+    width: 53px;
+    margin: 0 3px;
+}

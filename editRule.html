@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>oiuNewTab配置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/jquery-ui-1.12.1/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/pageRule.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/layx.css" />
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./plugin/layx.js"></script>
+    <script src="./plugin/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="./plugin/jQuery-contextMenu/jquery.ui.position.js"></script>
+    <script src="./js/page-rule.js"></script>
+    <script src="./js/localization.js"></script>
+    <script src="./js/jquery.query-object.js"></script>
+</head>
+
+<body>
+    <h3 style="text-align:center;" i18n-text="oiuNewTabConfig"></h3>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <h3 i18n-text="addNewRule"></h3>
+                <input type="text" id="txt-rulename" i18n-placeholder="enterRuleName"/>
+                <br/>
+                <input type="checkbox" id="cb-enbaled" checked />
+                <label for="cb-enbaled" i18n-text="enbaled"></label>
+                <br/><br/>
+                <button id="btn-save" class="btn btn-primary" i18n-text="save"></button>
+                &nbsp;&nbsp;
+                <a class="btn btn-default" i18n-text="backToManage" href="./pageStyleRule.html"></a>
+            </div>
+            <div class="col-lg-10 ruleContainer">
+                <div class="styleRuleContainer">
+                    <div class="row">
+                        <div class="col-lg-1" i18n-text="cssValue"></div>
+                        <div class="col-lg-11">
+                            <textarea class="input_styleRule"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="scriptRuleContainer">
+                    <div class="row">
+                        <div class="col-lg-1" i18n-text="scriptValue"></div>
+                        <div class="col-lg-11">
+                            <textarea class="input_scriptRule"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="matchRuleContainer">
+                    <div class="row">
+                        <div class="col-lg-1" i18n-text="matchPages"></div>
+                        <div class="col-lg-11 matchPageContainer">
+                            <input type="text" class="input_matchPage" />
+                            <button class="btn btn-default btn-sm btn-delMatchPage" i18n-text="del"></button>
+                            <button class="btn btn-default btn-sm btn-addMatchPage" i18n-text="add"></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

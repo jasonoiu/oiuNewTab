@@ -154,6 +154,14 @@
         return parseInt(val);
     }
 
+    /**
+     * 获取控件中去除了前后空格的值
+     * @returns {string} 控件的值 
+     */
+    $.fn.trimVal = function () { 
+        return $.trim($(this).val());
+     };
+
 })(jQuery, window);
 
 

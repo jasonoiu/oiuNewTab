@@ -1,0 +1,19 @@
+{
+	"pluginDesc": {"message": "Beautiful and powerful Chrome plugin"},
+	"oiuNewTabConfig": {"message": "oiuNewTab Configuration"},
+	"options": {"message": "Options"},
+	"enbaled": {"message": "Enbaled"},
+	"add": {"message": "Add"},
+	"del": {"message": "Del"},
+	"addNewRule": {"message": "Add new rule"},
+	"cssValue": {"message": "CSS"},
+	"scriptValue": {"message": "Script"},
+	"cssValueAndscriptValueCannotEmpty": {"message": "CSS and scripts cannot be empty at the same time!"},
+	"matchPages": {"message": "Match page: (support regular)"},
+	"matchPagesCannotEmpty": {"message": "Match page rules cannot be empty!"},
+	"pageStyleConfigration": {"message": "Page Style Rule Configration"},
+	"save": {"message": "Save"},
+	"enterRuleName":{"message": "Enter the rule name"},
+	"backToManage":{"message": "Back to manage"},
+	"ruleNameCannotEmpty":{"message": "The rule name cannot be empty!"}
+}
