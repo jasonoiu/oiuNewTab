@@ -54,6 +54,10 @@ ul,li,button,input,a{
     font-weight: 600;
 }
 
+.module>h3>.btn-toggleShow{
+    float: right;
+    cursor: pointer;
+}
 
 .modal{
     padding:10px;

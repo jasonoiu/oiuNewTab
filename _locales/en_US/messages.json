@@ -3,6 +3,8 @@
 	"oiuNewTabConfig": {"message": "oiuNewTab Configuration"},
 	"options": {"message": "Options"},
 	"enbaled": {"message": "Enbaled"},
+	"show":{"message": "Show"},
+	"hide":{"message": "Hide"},
 	"add": {"message": "Add"},
 	"del": {"message": "Del"},
 	"addNewRule": {"message": "Add new rule"},

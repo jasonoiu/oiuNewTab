@@ -440,7 +440,19 @@
         });
         getBlogsByPageIndex(1);
         getNewsByPageIndex(1);
-     })
+
+        //隐藏和显示切换事件
+        $('.btn-toggleShow').on('click',function () {
+            let $module = $(this).firstParent('.module').find('.contentContainer');
+            if($module.is(':visible')){
+                $module.hide();
+                $(this).html(t('show'));
+            }else{
+                $module.show();
+                $(this).html(t('hide'));
+            }
+         });
+     });
 
 })(jQuery, window);
 
@@ -599,7 +611,7 @@
         let wpHeight = $('body').cssVal('height')+ 203;
         let wpWidth = wpHeight * 1.5;
         $('body')
-            //.css('backgroundImage', 'url(http://192.168.0.101:90/api/BlegMM/GetRandomImg)')
+            .css('backgroundImage', 'url(http://192.168.0.101:90/api/BlegMM/GetRandomImg)')
             .css('backgroundSize', '100% auto');
             //.css('backgroundSize', wpWidth+'px '+wpHeight+'px');
 

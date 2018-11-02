@@ -3,6 +3,8 @@
 	"oiuNewTabConfig": {"message": "oiuNewTab配置"},
 	"options": {"message": "选项"},
 	"enbaled": {"message": "启用"},
+	"show":{"message": "显示"},
+	"hide":{"message": "隐藏"},
 	"add": {"message": "添加"},
 	"del": {"message": "删除"},
 	"addNewRule": {"message": "添加新规则"},

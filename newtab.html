@@ -20,6 +20,7 @@
     <script src="./plugin/jQuery-contextMenu/jquery.ui.position.js"></script>
     <script src="./plugin/jQuery-contextMenu/jquery.contextMenu.js"></script>
     <script src="./plugin/flipclock/flipclock.js"></script>
+    <script src="./js/localization.js"></script>
 </head>
 
 <body>
@@ -60,8 +61,8 @@
     </div>
 
     <div class="module" style="display:block; width:500px;">
-        <h3>CnBlogs</h3>
-        <div id="cnblogsContainer">
+        <h3>CnBlogs <a class="btn-toggleShow" i18n-text="hide"></a></h3>
+        <div id="cnblogsContainer" class="contentContainer">
             <ul>
                 <li><a href="#tabs-blogs">Blogs</a></li>
                 <li><a href="#tabs-news">News</a></li>
