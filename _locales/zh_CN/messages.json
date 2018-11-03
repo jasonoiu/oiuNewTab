@@ -21,5 +21,38 @@
 	"enterRuleName":{"message": "输入规则名称"},
 	"backToManage":{"message": "返回管理"},
 	"ruleNameCannotEmpty":{"message": "规则名称不能为空！"},
+
+
+	"weburl": {"message": "网址"},
+	"urlPrefix": {"message": "网址前缀"},
+	"URLOnThisDomain": {"message": "该域上的网址"},
+	"URLMatchesTheRegular": {"message": "与该正则表达式匹配的网址"},
+	"tips": {"message": "温馨提示"},
+	"delThisSection": {"message": "删除此部分"},
+	"addOtherSection": {"message": "添加其它部分"},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	"successfulOperation": {"message": "操作成功！"}
 }

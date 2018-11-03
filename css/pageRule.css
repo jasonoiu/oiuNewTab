@@ -14,3 +14,13 @@
     width: 53px;
     margin: 0 3px;
 }
+
+.RuleSection:not(:first-child){
+    border-top: solid 1px #cccccc;
+    margin: 10px auto 10px;
+    padding-top: 10px;
+}
+
+.sectionBtnContainer .btn-delSection{
+    display: none;
+}

@@ -21,5 +21,25 @@
 	"enterRuleName":{"message": "Enter the rule name"},
 	"backToManage":{"message": "Back to manage"},
 	"ruleNameCannotEmpty":{"message": "The rule name cannot be empty!"},
+
+
+	"weburl": {"message": "Web url"},
+	"urlPrefix": {"message": "URLs starting with"},
+	"URLOnThisDomain": {"message": "URL on the domain"},
+	"URLMatchesTheRegular": {"message": "URLs matching the regexp"},
+	"tips": {"message": "Tips"},
+	"delThisSection": {"message": "Delete this section"},
+	"addOtherSection": {"message": "Add other section"},
+
+
+
+
+
+
+
+
+
+
+
 	"successfulOperation": {"message": "Successful operation!"}
 }

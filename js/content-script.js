@@ -32,10 +32,26 @@ document.addEventListener('DOMContentLoaded', function()
 function isMatchUrl(matchArr) {
 	if(matchArr.length===0) return false;
 	let url = document.URL.toLowerCase();
+	let reg ;
 	for (let i = 0; i < matchArr.length; i++) {
-		const str = matchArr[i].toLowerCase();
-		let reg = new RegExp(str,'ig');
-		if(reg.test(url) || url.indexOf(str)>-1) return true;
+		let matchVal = matchArr[i].val.toLowerCase();
+		switch (matchArr[i].type) {
+			case 'url':
+				if(matchVal===url) return true;
+				break;
+			case 'url-prefix':
+				if(url.startsWith(matchVal)) return true;
+				break;
+			case 'domain':
+				matchVal = matchVal.replace(/\./g,'\\.');
+				reg = new RegExp('http[s]?:\/\/.*?\.' + matchVal,'ig');
+				if(reg.test(url)) return true;
+				break;
+			default:
+				reg = new RegExp(matchVal,'ig');
+				if(reg.test(url)) return true;
+				break;
+		}
 	}
 	return false;
 }

@@ -37,7 +37,7 @@
                     </div>`.format(
                         d.id,
                         d.ruleName,
-                        d.rules.map(m=>m.match).join(',')
+                        d.rules.map(m=> (m.match).map(x=>x.val)).join(',')
                     );
         }
         $('#ruleContainer').html(html);
