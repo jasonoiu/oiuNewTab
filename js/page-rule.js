@@ -3,11 +3,14 @@
     let list = [];
     let id = "";
     $(function () {
-        adjustStyle();
-        $(window).on('resize',adjustStyle);
-        bindRulesEvent();
+
+        $(window).on('resize', adjustStyle);
 
         id = $.query.get('id');
+        if (!id) {
+            adjustStyle();
+            bindRulesEvent();
+        }
         //加载现有数据
         chrome.storage.sync.get({
             pageRules: []
@@ -39,14 +42,16 @@
             obj.ruleName = ruleName;
             obj.rules = validResult.RuleResult;
             obj.enabled = $('#cb-enbaled').prop('checked');
-
-            list.push(obj);
+            if (!id) {
+                list.push(obj);
+            }
             chrome.storage.sync.set({
                 pageRules: list
             });
+            layx.msg(t('successfulOperation'),{dialogIcon:'success'});
         });
 
-        
+
     });
 
     /**
@@ -56,7 +61,7 @@
         //添加要匹配的页面规则
         $('.btn-addMatchPage')
             .unbind()
-            .on('click',function () {
+            .on('click', function () {
                 let parent = $(this).firstParent('.matchPageContainer');
                 $(`<input type="text" class="input_matchPage" />
                 <button class="btn btn-default btn-sm btn-delMatchPage" i18n-text="del"></button>`).appendTo(parent);
@@ -64,7 +69,7 @@
                 adjustStyle();
                 adjustAddMatchPageBtnPosition(parent);
                 bindRulesEvent();
-             })
+            })
     };
 
     /**
@@ -72,7 +77,7 @@
      * @param {jQuery} $container 匹配规则的容器
      */
     function adjustAddMatchPageBtnPosition($container) {
-        
+
     }
 
     /**
@@ -81,7 +86,7 @@
     function adjustStyle() {
         //调整匹配页面规则的输入框长度
         let $con = $('.matchRuleContainer .col-lg-11');
-        $('.input_matchPage').css('width', ($con.cssVal('width')-$con.cssVal('paddingLeft')-$con.cssVal('paddingRight'))*0.93-61*2);
+        $('.input_matchPage').css('width', ($con.cssVal('width') - $con.cssVal('paddingLeft') - $con.cssVal('paddingRight')) * 0.93 - 61 * 2);
 
     }
 
@@ -97,10 +102,16 @@
             RuleResult: []
         };
         $('.ruleContainer').each(function () {
-            let match = $(this).find('.input_matchPage').trimVal();
+            let match = [];
+            $(this).find('.input_matchPage').each(function () {
+                let val = $(this).trimVal();
+                if (val !== '') {
+                    match.push(val);
+                }
+            });
             let styleRule = $(this).find('.input_styleRule').trimVal();
             let scriptRule = $(this).find('.input_scriptRule').trimVal();
-            if (match === '') {
+            if (match.length === 0) {
                 result.valid = false;
                 result.message = t('matchPagesCannotEmpty');
                 return false;
@@ -124,7 +135,50 @@
      */
     function renderRules() {
         var obj = list.find(m => m.id == id);
-        console.log(obj);
+        $('#txt-rulename').val(obj.ruleName);
+        let html = '';
+        for (let i = 0; i < obj.rules.length; i++) {
+            const d = obj.rules[i];
+            html += `<div class="styleRuleContainer">
+                        <div class="row">
+                            <div class="col-lg-1" i18n-text="cssValue"></div>
+                            <div class="col-lg-11">
+                                <textarea class="input_styleRule">{0}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scriptRuleContainer">
+                        <div class="row">
+                            <div class="col-lg-1" i18n-text="scriptValue"></div>
+                            <div class="col-lg-11">
+                                <textarea class="input_scriptRule">{1}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="matchRuleContainer">
+                        <div class="row">
+                            <div class="col-lg-1" i18n-text="matchPages"></div>
+                            <div class="col-lg-11 matchPageContainer">
+                                {2}
+                                
+                            </div>
+                        </div>
+                    </div>`.format(
+                d.styleRule,
+                d.scriptRule,
+                d.match.map(function (val, i) {
+                    return `<input type="text" class="input_matchPage" value="{0}" />
+                                    <button class="btn btn-default btn-sm btn-delMatchPage" i18n-text="del"></button>{1}`.format(
+                        val,
+                        i === 0 ? `<button class="btn btn-default btn-sm btn-addMatchPage" i18n-text="add"></button>` : ''
+                    );
+                }).join('')
+            );
+        }
+        $('.ruleContainer').html(html);
+        adjustStyle();
+        bindRulesEvent();
+        tDocLoader();
     }
 
 
