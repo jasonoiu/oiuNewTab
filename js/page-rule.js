@@ -160,7 +160,7 @@
             message: '',
             RuleResult: []
         };
-        $('.ruleContainer').each(function () {
+        $('.RuleSection').each(function () {
             let match = [];
             $(this).find('.input_matchPage').each(function () {
                 let val = $(this).trimVal();
