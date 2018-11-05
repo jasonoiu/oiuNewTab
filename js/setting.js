@@ -2,25 +2,14 @@
 
 (function ($,window) {
     
-    let setting = {
-        module:[
-            {name:'bookmarks',show:true},
-            {name:'mostVisited',show:true},
-            {name:'noted',show:true},
-            {name:'cnblogs',show:true},
-            {name:'clock',show:true},
-            {name:'weather',show:true}
-        ]
-    };
-
     $(function () {
         
         //加载现有数据
         chrome.storage.sync.get({
-            setting: setting
+            setting: gd.setting
         }, function (data) {
-            setting = data.setting;
-            renderRules(setting.module);
+            gd.setting = data.setting;
+            renderRules(gd.setting.module);
         });
         
     });

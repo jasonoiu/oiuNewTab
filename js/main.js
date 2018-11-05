@@ -230,9 +230,20 @@
 
 (function ($, window) {
 
-    class gd{
-        
-    }
+    let gd= {
+        setting : {
+            module:[
+                {name:'bookmarks',show:true},
+                {name:'mostVisited',show:true},
+                {name:'noted',show:true},
+                {name:'cnblogs',show:true},
+                {name:'clock',show:true},
+                {name:'weather',show:true}
+            ]
+        }
+    };
+
+    window.gd = gd;
 
 })(jQuery, window);
 

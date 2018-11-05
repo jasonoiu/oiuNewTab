@@ -609,12 +609,26 @@
         let wpHeight = $('body').cssVal('height')+ 203;
         let wpWidth = wpHeight * 1.5;
         $('body')
-            //.css('backgroundImage', 'url(http://192.168.0.101:90/api/BlegMM/GetRandomImg)')
+            .css('backgroundImage', 'url(http://192.168.0.100:90/api/BlegMM/GetRandomImg)')
             .css('backgroundSize', '100% auto');
 
         $(window).resize(function () {
             redrawStyle();
         });
+
+        //显示模块
+        chrome.storage.sync.get({
+            setting: gd.setting
+        }, function (data) {
+            gd.setting = data.setting;
+            for (let i = 0; i < gd.setting.module.length; i++) {
+                const d = gd.setting.module[i];
+                if(d.show){
+                    $(`#${d.name}Container`).firstParent('.module').show();
+                }
+            }
+        });
+
         $(window).scroll(function () { 
             $('#dock').css('bottom',document.documentElement.scrollTop * -1);    
         });
