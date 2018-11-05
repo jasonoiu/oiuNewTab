@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function()
 {
 	let list = [];
@@ -23,6 +25,39 @@ document.addEventListener('DOMContentLoaded', function()
 		}
 	});
 });
+
+/**
+ * 动态加载js代码片段
+ * @param {string} code js代码片断
+ */
+function loadJsCode(code) {
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	//for Chrome Firefox Opera Safari
+	script.appendChild(document.createTextNode(code));
+	//for IE
+	//script.text = code;
+	document.body.appendChild(script);
+}
+
+/**
+ * 动态加载css内容
+ * @param {string} code css代码内容
+ */
+function loadCssCode(code) {
+	var style = document.createElement('style');
+	style.type = 'text/css';
+	style.rel = 'stylesheet';
+	try {
+		//for Chrome Firefox Opera Safari
+		style.appendChild(document.createTextNode(code));
+	} catch (ex) {
+		//for IE
+		style.styleSheet.cssText = code;
+	}
+	var head = document.getElementsByTagName('head')[0];
+	head.appendChild(style);
+}
 
 /**
  * 是否匹配当前页面
@@ -56,35 +91,3 @@ function isMatchUrl(matchArr) {
 	return false;
 }
 
-/**
- * 动态加载js代码片段
- * @param {string} code js代码片断
- */
-function loadJsCode(code){
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    //for Chrome Firefox Opera Safari
-    script.appendChild(document.createTextNode(code));
-    //for IE
-    //script.text = code;
-    document.body.appendChild(script);
-}
-
-/**
- * 动态加载css内容
- * @param {string} code css代码内容
- */
-function loadCssCode(code) {
-	var style = document.createElement('style');
-	style.type = 'text/css';
-	style.rel = 'stylesheet';
-	try {
-		//for Chrome Firefox Opera Safari
-		style.appendChild(document.createTextNode(code));
-	} catch (ex) {
-		//for IE
-		style.styleSheet.cssText = code;
-	}
-	var head = document.getElementsByTagName('head')[0];
-	head.appendChild(style);
-}

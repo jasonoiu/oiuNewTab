@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>oiuNewTab配置</title>
+    <title i18n-text="setting"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="plugin/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="plugin/jquery-ui-1.12.1/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/options.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/setting.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="plugin/layx.css" />
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./plugin/bootstrap/js/bootstrap.js"></script>
@@ -17,19 +17,14 @@
     <script src="./plugin/layx.js"></script>
     <script src="./plugin/jquery-ui-1.12.1/jquery-ui.js"></script>
     <script src="./plugin/jQuery-contextMenu/jquery.ui.position.js"></script>
-    <script src="./js/options.js"></script>
     <script src="./js/localization.js"></script>
+    <script src="./js/setting.js"></script>
 </head>
 
 <body>
-    <h3 style="text-align:center;" i18n-text="oiuNewTabConfig"></h3>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2">
-                <a href="./pageStyleRule.html" class="btn btn-default" i18n-text="pageStyleConfigration"></a>
-            </div>
-            
-        </div>
+        <strong i18n-text="setTheDisplayedModule"></strong>
+        <div id="moudleSetting"></div>
     </div>
 </body>
 

@@ -1,5 +1,5 @@
-(function ($,window) {
-    
+(function ($, window) {
+
     //数组包含
     Array.prototype.contains = function (obj) {
         var i = this.length;
@@ -27,10 +27,10 @@
     };
 
     /*
-    * 数组遍历使用回调
-    */
+     * 数组遍历使用回调
+     */
     Array.prototype.forEach = Array.prototype.forEach || function (callback) {
-        callback = callback || function () { };
+        callback = callback || function () {};
         for (var i = 0, len = this.length; i < len; i++) {
             callback.call(this[i], this[i], i);
         }
@@ -78,7 +78,7 @@
     //是否为正整数
     String.prototype.isDigit = function () {
         var s = this.trim();
-        return (s!='' && s.replace(/\d/g, "").length == 0);
+        return (s != '' && s.replace(/\d/g, "").length == 0);
     };
 
     // 检查是否为数字 (含正负符号和小数点)
@@ -103,7 +103,7 @@
      * 日期时间格式化
      * @param {string} fmt 格式化字符串，如"yyyy-MM-dd hh:mm:ss"
      */
-    Date.prototype.format = function(fmt) {
+    Date.prototype.format = function (fmt) {
         var o = {
             "M+": this.getMonth() + 1, //月份 
             "d+": this.getDate(), //日 
@@ -130,11 +130,11 @@
      * @param {number} day 需要增加的天数
      */
     Date.prototype.addDay = function (day) {
-        let d = this.setDate(this.getDate()+day);
+        let d = this.setDate(this.getDate() + day);
         return new Date(d);
     };
 
-    
+
 
     /**
      * 父级中符合条件的第一个元素
@@ -151,7 +151,7 @@
      * @returns {number} 返回数字 
      */
     $.fn.cssVal = function (cssName) {
-        let val = $(this).css(cssName).replace('px','');
+        let val = $(this).css(cssName).replace('px', '');
         return parseInt(val);
     }
 
@@ -159,16 +159,16 @@
      * 获取控件中去除了前后空格的值
      * @returns {string} 控件的值 
      */
-    $.fn.trimVal = function () { 
+    $.fn.trimVal = function () {
         return $.trim($(this).val());
-     };
+    };
 
 })(jQuery, window);
 
 
 
 
-(function ($,window) { 
+(function ($, window) {
     /**
      * 工具类
      */
@@ -186,8 +186,63 @@
             });
             return guid;
         }
+
+        /**
+         * 动态加载js代码片段
+         * @param {string} code js代码片断
+         */
+        loadJsCode(code) {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            //for Chrome Firefox Opera Safari
+            script.appendChild(document.createTextNode(code));
+            //for IE
+            //script.text = code;
+            document.body.appendChild(script);
+        }
+
+        /**
+         * 动态加载css内容
+         * @param {string} code css代码内容
+         */
+        loadCssCode(code) {
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.rel = 'stylesheet';
+            try {
+                //for Chrome Firefox Opera Safari
+                style.appendChild(document.createTextNode(code));
+            } catch (ex) {
+                //for IE
+                style.styleSheet.cssText = code;
+            }
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(style);
+        }
+
     }
 
     window.tools = new tools();
 
- })(jQuery, window)
+})(jQuery, window);
+
+
+
+(function ($, window) {
+
+    class gd{
+        
+    }
+
+})(jQuery, window);
+
+
+
+
+(function ($, window) {
+
+    $(function () {
+        $('<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">').appendTo('head');
+    });
+
+})(jQuery, window);

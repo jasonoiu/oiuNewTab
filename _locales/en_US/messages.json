@@ -32,6 +32,19 @@
 	"addOtherSection": {"message": "Add other section"},
 
 
+	"mostVisited": {"message": "Most Visited"},
+	"cnblogs": {"message": "Cnblogs"},
+	"blogs": {"message": "Blogs"},
+	"news": {"message": "News"},
+	"noted": {"message": "Notes"},
+	"clock": {"message": "Clock"},
+	"weather": {"message": "Weather"},
+	"title": {"message": "Title: "},
+	"bookmarks": {"message": "BookMark"},
+	"newTab": {"message": "New Tab"},
+	"setting": {"message": "Setting"},
+	"wallpaper": {"message": "Wallpaper"},
+	"setTheDisplayedModule": {"message": "Set the displayed module"},
 
 
 

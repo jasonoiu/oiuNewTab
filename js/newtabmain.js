@@ -10,7 +10,6 @@
         chrome.bookmarks.getTree(function (bookmarkArray) {
             bmList = bookmarkArray[0].children[0].children;
             appendFavHtml(bmList, $('#bookmarksContainer'));
-            $('#bookmarksContainer').parent().show();
         });
     });
     
@@ -98,8 +97,7 @@
                 obj.url, obj.title
             );
         }
-        $('#mostVisitedContainer').html(html)
-            .parent().show();
+        $('#mostVisitedContainer').html(html);
         $.contextMenu({
             selector: '#mostVisitedContainer a',
             items: {
@@ -220,8 +218,7 @@
                 obj.id, obj.content
             );
         }
-        $('#notedContainer').html(html)
-            .parent().show();
+        $('#notedContainer').html(html);
         bindNoteClickEvent();
         $.contextMenu({
             selector: '#notedContainer div',
@@ -592,7 +589,7 @@
 
 
 
-//#region wallpaper
+//#region wallpaper & dock
 
 ;(function ($,window) {
 
@@ -603,6 +600,7 @@
         $('body').css('height', $(window).height() - (
             $('body').cssVal('marginTop') + $('body').cssVal('marginBottom')
         ));
+        $('#dock').css('left', (document.body.clientWidth - $('#dock').cssVal('width'))/2);
     }
     
     $(function () {
@@ -611,13 +609,22 @@
         let wpHeight = $('body').cssVal('height')+ 203;
         let wpWidth = wpHeight * 1.5;
         $('body')
-            .css('backgroundImage', 'url(http://192.168.0.101:90/api/BlegMM/GetRandomImg)')
+            //.css('backgroundImage', 'url(http://192.168.0.101:90/api/BlegMM/GetRandomImg)')
             .css('backgroundSize', '100% auto');
-            //.css('backgroundSize', wpWidth+'px '+wpHeight+'px');
 
         $(window).resize(function () {
             redrawStyle();
         });
+        $(window).scroll(function () { 
+            $('#dock').css('bottom',document.documentElement.scrollTop * -1);    
+        });
+
+        //绑定dock的相关事件
+
+
+        $('#dock-setting').on('click',function () { 
+            layx.iframe('layx-dock-setting',t('setting'),'../setting.html');
+         });
 
     });
 

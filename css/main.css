@@ -8,6 +8,8 @@ body{
     background-repeat: no-repeat;
     background-size: auto;
     background-color: #f6faff;
+    height: 100%;
+    position: relative;
 }
 
 a:link,a:visited{
@@ -62,3 +64,21 @@ ul,li,button,input,a{
 .modal{
     padding:10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

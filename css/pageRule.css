@@ -7,7 +7,7 @@
 
 
 .input_styleRule, .input_scriptRule{
-    min-height: 100px;
+    min-height: 260px;
 }
 
 .matchRuleContainer .btn-delMatchPage,.matchRuleContainer .btn-addMatchPage{

@@ -31,7 +31,19 @@
 	"delThisSection": {"message": "删除此部分"},
 	"addOtherSection": {"message": "添加其它部分"},
 
-
+	"mostVisited": {"message": "最常访问"},
+	"cnblogs": {"message": "博客园"},
+	"blogs": {"message": "博客"},
+	"news": {"message": "新闻"},
+	"noted": {"message": "笔记"},
+	"clock": {"message": "时钟"},
+	"weather": {"message": "天气"},
+	"title": {"message": "标题："},
+	"bookmarks": {"message": "书签"},
+	"newTab": {"message": "新标签页"},
+	"setting": {"message": "设置"},
+	"wallpaper": {"message": "壁纸"},
+	"setTheDisplayedModule": {"message": "设置显示的模块"},
 
 
 

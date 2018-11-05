@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>新标签页</title>
+    <title i18n-text="newTab"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="plugin/jquery-ui-1.12.1/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/newtab.css" />
@@ -13,6 +14,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="plugin/jQuery-contextMenu/jquery.contextMenu.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="plugin/flipclock/flipclock.css" />
     <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./plugin/bootstrap/js/bootstrap.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/newtabmain.js"></script>
     <script src="./plugin/layx.js"></script>
@@ -26,19 +28,19 @@
 <body>
 
     <div class="module" style="width:270px;">
-        <h3>BookMarks</h3>
+        <h3 i18n-text="bookmarks"></h3>
         <div id="bookmarksContainer"></div>
     </div>
     
-    <div class="container" style="width:383px;">
-        <div class="module">
-            <h3>Most Visited</h3>
+    <div class="container" style="width:425px;">
+        <div class="module" style="width:100%;">
+            <h3 i18n-text="mostVisited"></h3>
             <div id="mostVisitedContainer"></div>
             <div class="clear"></div>
             <div id="btnAddMV">+</div>
 
             <div id="add-mv-modal" class="modal" style="display:none;">
-                Title: <input type="text" id="txt-mv-title"  />
+                <span i18n-text="title"></span> <input type="text" id="txt-mv-title"  />
                 <br />
                 Url: <input type="text" id="txt-mv-url" />
                 <br/>
@@ -46,8 +48,8 @@
         </div>
         
 
-        <div class="module">
-            <h3>Noted</h3>
+        <div class="module" style="width:100%;">
+            <h3 i18n-text="noted"></h3>
             <div id="notedContainer"></div>
             <div class="clear"></div>
             <div id="btnAddNote">+</div>
@@ -60,12 +62,12 @@
 
     </div>
 
-    <div class="module" style="display:block; width:500px;">
-        <h3>CnBlogs <a class="btn-toggleShow" i18n-text="show"></a></h3>
+    <div class="module" style="width:500px;">
+        <h3><span i18n-text="cnblogs"></span> <a class="btn-toggleShow" i18n-text="show"></a></h3>
         <div id="cnblogsContainer" class="contentContainer" style="display:none;">
             <ul>
-                <li><a href="#tabs-blogs">Blogs</a></li>
-                <li><a href="#tabs-news">News</a></li>
+                <li><a href="#tabs-blogs" i18n-text="blogs"></a></li>
+                <li><a href="#tabs-news" i18n-text="news"></a></li>
               </ul>
               <div id="tabs-blogs">
                 
@@ -76,18 +78,22 @@
         </div>
     </div>
     
-    <div class="container" style="width:383px;">
-        <div class="module" style="display:block; width:100%;">
+    <div class="container" style="width:406px;">
+        <div class="module" style="width:100%;">
             <div id="clockContainer"></div>
         </div>
 
-        <div class="module" style="display:block; width:100%;">
+        <div class="module" style="width:100%;">
             <div id="weatherContainer"></div>
         </div>
     </div>
 
     
 
+    <section id="dock">
+        <a id="dock-setting" class="glyphicon glyphicon-cog" href="javascript:void(0);" i18n-title="setting"></a>
+        <a id="dock-wallpaper" class="glyphicon glyphicon-picture" href="javascript:void(0);" i18n-title="wallpaper"></a>
+    </section>
     
 </body>
 

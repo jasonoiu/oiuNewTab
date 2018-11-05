@@ -194,7 +194,7 @@
 }
 
 #weatherContainer .weatherMoudle.today{
-    width: 170px;
+    width: 150px;
 }
 
 #weatherContainer .weatherMoudle .weather_icon{
@@ -283,3 +283,48 @@
 
 
 /*  weather end  */
+
+
+
+
+/*  dock start  */
+
+
+#dock{
+    position: absolute;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    border: #a9aaab solid 1px;
+    border-radius: 8px;
+    padding: 5px 20px;
+    margin: 5px auto;
+    
+}
+
+#dock a{ 
+    font-size: 24px;
+    margin: 5px 0 5px 5px;
+}
+#dock a:last-child{
+    margin: 5px;
+}
+#dock a:hover{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+/*  weather end  */
+
+
+
+
+
