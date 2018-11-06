@@ -230,6 +230,8 @@
 
 (function ($, window) {
 
+    let $def4Setting = $.Deferred();
+
     let gd= {
         setting : {
             module:[
@@ -240,8 +242,38 @@
                 {name:'clock',show:true},
                 {name:'weather',show:true}
             ]
+        },
+
+        /**
+         * 读取设置数据的延迟对象
+         */
+        settingDataDef(){
+            return $def4Setting;
+        },
+
+        /**
+         * 获取设置的存储数据
+         */
+        getSettingData(){
+            chrome.storage.sync.get({
+                setting: gd.setting
+            }, function (data) {
+                gd.setting = data.setting;
+                $def4Setting.resolve();
+            });
+        },
+
+        /**
+         * 获取模块是否需要加载显示
+         * @param {string} moduleName 模块名称
+         */
+        getMoudleIsShow(moduleName){
+            let m = gd.setting.module.find(x=>x.name===moduleName);
+            return m && m.show;
         }
     };
+
+    gd.getSettingData();
 
     window.gd = gd;
 

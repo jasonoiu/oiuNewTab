@@ -5,10 +5,7 @@
     $(function () {
         
         //加载现有数据
-        chrome.storage.sync.get({
-            setting: gd.setting
-        }, function (data) {
-            gd.setting = data.setting;
+        gd.settingDataDef().done(()=>{
             renderRules(gd.setting.module);
         });
         

@@ -29,7 +29,16 @@
 
 /* Most Visited start */
 
-#btnAddMV {
+#add-mv-modal{
+    padding: 10px;
+}
+
+#add-mv-modal .span-mv-title{
+    width: 45px;
+    display: inline-block;
+}
+
+#btnAddMV,#btnAddNote {
     border-radius: 50%;
     border: solid 1px #6e7171;
     color: #6e7171;
@@ -37,19 +46,18 @@
     text-align: center;
     vertical-align: -webkit-baseline-middle;
     width: 21px;
-    height: 18px;
+    height: 21px;
     padding-bottom: 1px;
     padding-top: 1px;
     cursor: pointer;
     float: right;
 }
-#btnAddMV:hover{
+#btnAddMV:hover,#btnAddNote:hover{
     border:solid 1px #e33e06;
     color: #e33e06
 }
 
 #mostVisitedContainer div {
-    float: left;
     width: 75px;
     height: 30px;
     margin: 10px 3px 0 10px;
@@ -66,19 +74,8 @@
 
 /* noted start */
 
-#btnAddNote {
-    border-radius: 50%;
-    border: solid 1px #6e7171;
-    color: #6e7171;
-    line-height: 18px;
-    text-align: center;
-    vertical-align: -webkit-baseline-middle;
-    width: 21px;
-    height: 18px;
-    padding-bottom: 1px;
-    padding-top: 1px;
-    cursor: pointer;
-    float: right;
+#add-note-modal{
+    padding: 10px;
 }
 
 #txt-note{
@@ -305,6 +302,7 @@
 #dock a{ 
     font-size: 24px;
     margin: 5px 0 5px 5px;
+    cursor: pointer;
 }
 #dock a:last-child{
     margin: 5px;

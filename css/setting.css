@@ -1,5 +1,8 @@
 
-
+#moudleSetting div{
+    float: left;
+    width: 120px;
+}
 #moudleSetting div label{
     font-weight: normal;
 }
