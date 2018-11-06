@@ -44,7 +44,8 @@
 	"setting": {"message": "设置"},
 	"wallpaper": {"message": "壁纸"},
 	"setTheDisplayedModule": {"message": "设置显示的模块"},
-
+	"modulePersonalization": {"message": "模块个性化"},
+	"isExpandDefault": {"message": "默认是否展开"},
 
 
 

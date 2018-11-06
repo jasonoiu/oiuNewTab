@@ -45,8 +45,8 @@
 	"setting": {"message": "Setting"},
 	"wallpaper": {"message": "Wallpaper"},
 	"setTheDisplayedModule": {"message": "Set the displayed module"},
-
-
+	"modulePersonalization": {"message": "Module personalization"},
+	"isExpandDefault": {"message": "Whether to expand by default"},
 
 
 

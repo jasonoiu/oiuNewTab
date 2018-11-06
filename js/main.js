@@ -238,7 +238,12 @@
                 {name:'bookmarks',show:true},
                 {name:'mostVisited',show:true},
                 {name:'noted',show:true},
-                {name:'cnblogs',show:true},
+                {name:'cnblogs',show:true,
+                 data:{
+                     //是否默认展开
+                     defaultExpand: false
+                 }
+                },
                 {name:'clock',show:true},
                 {name:'weather',show:true}
             ]
