@@ -665,6 +665,7 @@ gd.settingDataDef().done(() => {
                                     let obj = gd.setting.module.findObjOfComplexObj('name', $(this).attr('id'));
                                     obj.show = $(this).prop('checked');
                                 });
+                                
                                 chrome.storage.sync.set({
                                     setting: gd.setting
                                 });
