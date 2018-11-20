@@ -368,6 +368,7 @@ gd.settingDataDef().done(() => {
 
         if (!gd.getMoudleIsShow(moduleName)) return;
 
+        let module = gd.gm(moduleName);
         /**
          * 绑定翻页事件
          * @param {boolen} isBlog 是否为博客内容
@@ -463,6 +464,13 @@ gd.settingDataDef().done(() => {
                     $(this).html(t('hide'));
                 }
             });
+
+            //读取设置默认是否显示
+            if(module.data){
+                if(module.data.defaultExpand){ //默认展开
+                    $('.btn-toggleShow').trigger('click');
+                }
+            }
         });
 
     })(jQuery, window, 'cnblogs');
@@ -656,7 +664,7 @@ gd.settingDataDef().done(() => {
                 layx.iframe('layx-dock-setting', t('setting'), '../setting.html', {
                     statusBar: true,
                     buttons: [{
-                            label: '保存',
+                            label: t('save'),
                             callback: function (id, button, event) {
                                 // 获取 iframe 页面 window对象
                                 var contentWindow = layx.getFrameContext(id);
@@ -664,6 +672,17 @@ gd.settingDataDef().done(() => {
                                 moudleShowObj.each(function () {
                                     let obj = gd.setting.module.findObjOfComplexObj('name', $(this).attr('id'));
                                     obj.show = $(this).prop('checked');
+
+                                    //设置个性化数据
+                                    switch (obj.name) {
+                                        case 'cnblogs':
+                                            if(!obj.data) obj.data = {};
+                                            obj.data.defaultExpand = $('#cb-defaultExpand-cnblogs', contentWindow.document.body).prop('checked');
+                                            break;
+                                    
+                                        default:
+                                            break;
+                                    }
                                 });
                                 
                                 chrome.storage.sync.set({
@@ -675,7 +694,7 @@ gd.settingDataDef().done(() => {
                             }
                         },
                         {
-                            label: '取消',
+                            label: t('cancel'),
                             callback: function (id, button, event) {
                                 layx.destroy(id);
                             }

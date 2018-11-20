@@ -18,6 +18,7 @@
 	"matchPagesCannotEmpty": {"message": "Match page rules cannot be empty!"},
 	"pageStyleConfigration": {"message": "Page Style Rule Configration"},
 	"save": {"message": "Save"},
+	"cancel": {"message": "Cancel"},
 	"enterRuleName":{"message": "Enter the rule name"},
 	"backToManage":{"message": "Back to manage"},
 	"ruleNameCannotEmpty":{"message": "The rule name cannot be empty!"},

@@ -33,9 +33,18 @@
      */
     function renderMoudlePersonal() {
         $('#moudlePersonal').tabs();
-        //cnblogs
-        let cnblogs = gd.setting.module.find(m=>m.name==='cnblogs');
-        $('#cb-defaultExpand-cnblogs').prop('checked', cnblogs.data.defaultExpand);
+        for (let [index, obj] of gd.setting.module.entries()) {
+            switch (obj.name) {
+                case 'cnblogs':
+                    if(!obj.data) obj.data = {};
+                    $('#cb-defaultExpand-cnblogs').prop('checked', obj.data.defaultExpand);
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+        
     }
 
 

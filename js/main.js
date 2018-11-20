@@ -261,11 +261,11 @@
          */
         getSettingData(){
             chrome.storage.sync.get({
-                setting: gd.setting
+                setting: this.setting
             }, function (data) {
-                gd.setting = data.setting;
+                this.setting = data.setting;
                 $def4Setting.resolve();
-            });
+            }.bind(this));
         },
 
         /**
@@ -273,8 +273,16 @@
          * @param {string} moduleName 模块名称
          */
         getMoudleIsShow(moduleName){
-            let m = gd.setting.module.find(x=>x.name===moduleName);
+            let m = this.gm(moduleName);
             return m && m.show;
+        },
+
+        /**
+         * 获取模块对象
+         * @param {string} moduleName 模块名称
+         */
+        gm(moduleName){
+            return this.setting.module.find(x=>x.name===moduleName);
         }
     };
 
