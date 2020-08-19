@@ -1,6 +1,6 @@
-(function($, window) {
+(function ($, window) {
   //数组包含
-  Array.prototype.contains = function(obj) {
+  Array.prototype.contains = function (obj) {
     var i = this.length;
     while (i--) {
       if (
@@ -15,7 +15,7 @@
     return false;
   };
   //返回复杂对象在数组中的位置
-  Array.prototype.indexOfComplexObj = function(key, value) {
+  Array.prototype.indexOfComplexObj = function (key, value) {
     if (this.length === 0) return -1;
     for (var i = 0; i < this.length; i++) {
       if (this[i][key] == value) return i;
@@ -23,7 +23,7 @@
     return -1;
   };
   //返回数组中的复杂对象
-  Array.prototype.findObjOfComplexObj = function(key, value) {
+  Array.prototype.findObjOfComplexObj = function (key, value) {
     var index = this.indexOfComplexObj(key, value);
     return index === -1 ? null : this[index];
   };
@@ -33,32 +33,32 @@
    */
   Array.prototype.forEach =
     Array.prototype.forEach ||
-    function(callback) {
-      callback = callback || function() {};
+    function (callback) {
+      callback = callback || function () {};
       for (var i = 0, len = this.length; i < len; i++) {
         callback.call(this[i], this[i], i);
       }
     };
   //数组删除某一元素，n表示第几项，从0开始算起。
-  Array.prototype.del = function(n) {
+  Array.prototype.del = function (n) {
     if (n >= 0) return this.slice(0, n).concat(this.slice(n + 1, this.length));
   };
   //数组复杂对象的删除元素
-  Array.prototype.removeOfComplexObj = function(key, value) {
+  Array.prototype.removeOfComplexObj = function (key, value) {
     var index = this.indexOfComplexObj(key, value);
     index > -1 && this.splice(index, 1);
   };
 
   //是否包含某字符串，默认区分大小写
   //isCaseSensitive: 是否区分大小写，默认为true
-  String.prototype.contains = function(obj, isCaseSensitive) {
+  String.prototype.contains = function (obj, isCaseSensitive) {
     if (isCaseSensitive === undefined) isCaseSensitive = true;
-    return isCaseSensitive
-      ? this.indexOf(obj) >= 0
-      : this.indexOfIgnoreCase(obj) >= 0;
+    return isCaseSensitive ?
+      this.indexOf(obj) >= 0 :
+      this.indexOfIgnoreCase(obj) >= 0;
   };
   //是否包含某字符串，忽略大小写
-  String.prototype.indexOfIgnoreCase = function() {
+  String.prototype.indexOfIgnoreCase = function () {
     var bi = arguments[arguments.length - 1];
     var thisObj = this;
     var idx = 0;
@@ -72,34 +72,34 @@
     return r == null ? -1 : r.index + idx;
   };
   //扩展 string.format
-  String.prototype.format = function() {
+  String.prototype.format = function () {
     var args = arguments;
     var reg = /\{(\d+)\}/g;
-    return this.replace(reg, function(g0, g1) {
+    return this.replace(reg, function (g0, g1) {
       return args[+g1];
     });
   };
   //是否为正整数
-  String.prototype.isDigit = function() {
+  String.prototype.isDigit = function () {
     var s = this.trim();
     return s != "" && s.replace(/\d/g, "").length == 0;
   };
 
   // 检查是否为数字 (含正负符号和小数点)
-  String.prototype.isNumber = function() {
+  String.prototype.isNumber = function () {
     var s = this.trim();
     return s.search(/^[+-]?[0-9.]*$/) >= 0;
   };
   //字符转换成整数
-  String.prototype.toInt = function() {
+  String.prototype.toInt = function () {
     return parseInt(this.trim());
   };
   //字符转换成浮点数字
-  String.prototype.toFloat = function() {
+  String.prototype.toFloat = function () {
     return parseFloat(this.trim());
   };
   //去掉所有的html标记
-  String.prototype.delHtmlTag = function() {
+  String.prototype.delHtmlTag = function () {
     return this.replace(/<[^>]+>/g, "");
   };
 
@@ -107,7 +107,7 @@
    * 日期时间格式化
    * @param {string} fmt 格式化字符串，如"yyyy-MM-dd hh:mm:ss"
    */
-  Date.prototype.format = function(fmt) {
+  Date.prototype.format = function (fmt) {
     var o = {
       "M+": this.getMonth() + 1, //月份
       "d+": this.getDate(), //日
@@ -127,9 +127,9 @@
       if (new RegExp("(" + k + ")").test(fmt)) {
         fmt = fmt.replace(
           RegExp.$1,
-          RegExp.$1.length == 1
-            ? o[k]
-            : ("00" + o[k]).substr(("" + o[k]).length)
+          RegExp.$1.length == 1 ?
+          o[k] :
+          ("00" + o[k]).substr(("" + o[k]).length)
         );
       }
     }
@@ -140,7 +140,7 @@
    * 增加天数
    * @param {number} day 需要增加的天数
    */
-  Date.prototype.addDay = function(day) {
+  Date.prototype.addDay = function (day) {
     let d = this.setDate(this.getDate() + day);
     return new Date(d);
   };
@@ -150,7 +150,7 @@
    * @param {selector} selector
    * @returns {jQuery对象}
    */
-  $.fn.firstParent = function(selector) {
+  $.fn.firstParent = function (selector) {
     return $(this)
       .parents(selector)
       .eq(0);
@@ -161,7 +161,7 @@
    * @param {string} cssName css名称
    * @returns {number} 返回数字
    */
-  $.fn.cssVal = function(cssName) {
+  $.fn.cssVal = function (cssName) {
     let val = $(this)
       .css(cssName)
       .replace("px", "");
@@ -172,12 +172,12 @@
    * 获取控件中去除了前后空格的值
    * @returns {string} 控件的值
    */
-  $.fn.trimVal = function() {
+  $.fn.trimVal = function () {
     return $.trim($(this).val());
   };
 })(jQuery, window);
 
-(function($, window) {
+(function ($, window) {
   /**
    * 工具类
    */
@@ -190,7 +190,7 @@
       var d = new Date().getTime();
       var guid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
         /[xy]/g,
-        function(c) {
+        function (c) {
           var r = (d + Math.random() * 16) % 16 | 0;
           d = Math.floor(d / 16);
           return (c == "x" ? r : (r & 0x3) | 0x8).toString(16);
@@ -236,13 +236,12 @@
   window.tools = new tools();
 })(jQuery, window);
 
-(function($, window) {
+(function ($, window) {
   let $def4Setting = $.Deferred();
 
   let gd = {
     setting: {
-      module: [
-        {
+      module: [{
           name: "bookmarks",
           show: true
         },
@@ -266,10 +265,10 @@
           name: "clock",
           show: true
         },
-        {
-          name: "weather",
-          show: true
-        }
+        // {
+        //   name: "weather",
+        //   show: true
+        // }
       ]
     },
 
@@ -284,11 +283,10 @@
      * 获取设置的存储数据
      */
     getSettingData() {
-      chrome.storage.sync.get(
-        {
+      chrome.storage.sync.get({
           setting: this.setting
         },
-        function(data) {
+        function (data) {
           this.setting = data.setting;
           $def4Setting.resolve();
         }.bind(this)
@@ -318,8 +316,8 @@
   window.gd = gd;
 })(jQuery, window);
 
-(function($, window) {
-  $(function() {
+(function ($, window) {
+  $(function () {
     $(
       '<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">'
     ).appendTo("head");
